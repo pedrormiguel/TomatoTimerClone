@@ -1,211 +1,232 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
-* {
-    /* border: 1px dashed red; */
+
+html {
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+  height: 100vh;
 }
 
-html{
-    border: 0;
-    margin: 0;
-    box-sizing: border-box;
-    height: 100vh;
+.bol {
+  border: 1px dashed red;
 }
-
-.bol{
-    border: 1px dashed red;
-}
-
 
 a.navbar-brand {
-    white-space: normal;
-    text-align: center;
-    word-break: break-all;
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
 }
 
 /* Provide sufficient contrast against white background */
 
 h1 {
-    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-    line-height: 1.1;
-    font-size: 2.313rem;
-    font-weight: bold;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  line-height: 1.1;
+  font-size: 2.2rem;
+  font-weight: bold;
 }
 
 .btn-primary {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-    font-size: 14px;
+  font-size: 1rem;
 }
 
-@media (max-width: 770px) {
+@media (max-width: 765px) {
 
-    html {
-        font-size: 16px;
+  html {
+    font-size: 1rem;
+  }
+
+  div.bg-dark ul > li:not(:last-child) {
+    border-bottom: 1px inset #333333;
+  }
+
+  h1 {
+    text-align: start;
+    padding: 0.875rem 0;
+  }
+
+  #ActionsPomodoro {
+    display: flex;
+    flex-direction: row;
+    width: 100% !important;
+  }
+
+  #buttonAction > button {
+    max-width: 100% !important;
+ }
+
+
+  div.bg-dark ul > li > a {
+    text-align: start;
+  }
+
+}
+
+@media(min-width:771px){
+
+    div.bg-dark.col-12.col-sm-12.col-md-6 {
+        max-width: 21.875rem;
+        width: fit-content;
     }
 
-    body {
-        background-color: yellow; 
+}
+
+@media(min-width:1025px){
+
+    nav > div.container {
+        padding: 0 13rem;
     }
 
-    #ActionsPomodoro {
-        display: flex;
-        flex-direction: row;
-        width: 100% !important;
-    }
-    
-    #buttonAction  > button {
-
-        width: max-content;
-
-    }
-    
 }
 
 .border-top {
-    border-top: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
 }
 
 .border-bottom {
-    border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .box-shadow {
-    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
 }
 
 button.accept-policy {
-    font-size: 1rem;
-    line-height: inherit;
+  font-size: 1rem;
+  line-height: inherit;
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-    position: relative;
-    min-height: 100%;
+  position: relative;
+  min-height: 100%;
 }
 
 /* Nav styles
 -------------------------------------------------- */
 #Navbar {
-    background-color: #f2f2f2 !important;
-    margin-bottom: 1.4rem;
-    min-height: 7.5rem;
+  background-color: #f2f2f2 !important;
+  margin-bottom: 1.4rem;
+  min-height: 7.5rem;
 }
- 
+
 body {
-    /* Margin bottom by footer height */
-    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-    margin-bottom: 60px;
+  /* Margin bottom by footer height */
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  margin-bottom: 3.75rem;
+  line-height: 1.58;
 }
 
 div.bg-dark {
-    background-color:#4d4d4d !important;
-    text-align: center;
-    font-size: 0.875rem;
-    font-weight: 250;
+  background-color: #4d4d4d !important;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 250;
 }
 
 a.nav-link {
-    color: #e6e6e6 !important;
+  color: #e6e6e6 !important;
 }
 
 div.bg-dark ul > li > a {
-    list-style: none;
-    /* padding: 0.6rem 1.25rem; */
+  list-style: none;
+  /* padding: 0.6rem 1.25rem; */
 }
 
-div.bg-dark ul > li  > a:hover {
-    cursor: pointer;
-    background-color: #333333;
+div.bg-dark ul > li > a:hover {
+  cursor: pointer;
+  background-color: #333333;
 }
 
 div.bg-dark ul > li:not(:last-child) {
-    border-right: 1px inset #333333;
+  border-right: 1px inset #333333;
 }
 
 .footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    white-space: nowrap;
-    line-height: 60px; /* Vertically center the text there */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 3.75rem; /* Vertically center the text there */
 }
 
 /* Buttons / Botones */
 
 div#OptionsPomodoro > div.col > button {
-    text-align: center;
-    color: white;
-    border:1px solid #1e728c;
-    font-size: 0.875rem;
-    padding: 0.406rem 0;
-    margin: 0;
-    width: inherit;
-    height: inherit;
-    background-color: #2aa6ca;
-    box-shadow: 0 1px 0 rgb(255 255 255 / 50%) inset;
+  text-align: center;
+  color: white;
+  border: 1px solid #1e728c;
+  font-size: 0.875rem;
+  padding: 0.406rem 0;
+  margin: 0;
+  width: inherit;
+  height: inherit;
+  background-color: #2aa6ca;
+  box-shadow: 0 1px 0 rgb(255 255 255 / 50%) inset;
 }
 
 div#OptionsPomodoro > div.col > button:hover {
-
-    background-color: #2284a1;
-    transition: background-color 0.2s  ease-in;
+  background-color: #2284a1;
+  transition: background-color 0.2s ease-in;
 }
 
-div#OptionsPomodoro > div.col > button:focus-within{
-    background-color: #2284a1 !important;
+div#OptionsPomodoro > div.col > button:focus-within {
+  background-color: #2284a1 !important;
 }
 
 .col {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 #OptionsPomodoro {
-
-    /* width: 200px; */
-    max-width: 50rem;
-    margin: 0 auto;
-
+  /* width: 200px; */
+  max-width: 50rem;
+  margin: 0 auto;
 }
 
 #counter {
-
-    font-weight: bold;
-    font-size: 100px;
-    display: block;
-    text-align: center;
-    /* margin: 0 50px; */
+  font-weight: bold;
+  font-size: 5.938rem;
+  display: block;
+  text-align: center;
+  /* margin: 0 50px; */
 }
 
 #ActionsPomodoro {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 65%;
-    text-align: center;
-    align-self: center;
-    margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 450px;
+  text-align: center;
+  align-self: center;
+  margin: 0 auto;
 }
 
-#buttonAction  > button {
-    border-radius: 3px; 
-    color: white;
-    font-weight: bold;
-    height: 50px;
-    width: 100px;
+#buttonAction > button {
+  border-radius: 0.188rem;
+  color: white;
+  font-weight: bold;
+  height: 3.125rem;
+  max-width: 6.25rem;
+  font-size: 1.063rem !important;
+  width: -webkit-fill-available;
 }
