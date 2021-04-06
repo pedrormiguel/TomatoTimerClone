@@ -1,7 +1,7 @@
 ﻿@page
 @model IndexModel
-@{
 
+@{
 }
 
 <div class="container">
@@ -9,41 +9,150 @@
     <div id="OptionsPomodoro" class="row mt-1 mb-4">
 
         <div class="col ">
-            <button>Pomodoro</button>
+            <button onclick="pomodoro(25)">Pomodoro</button>
         </div>
 
         <div class="col">
-            <button>Short Break</button>
+            <button onclick="pomodoro(5)">Short Break</button>
         </div>
 
         <div class="col">
-            <button>Long Break</button>
+            <button onclick="pomodoro(10)">Long Break</button>
         </div>
 
-    </div> 
+    </div>
 
     <div class="row mt-2 mb-4">
 
         <div class="col">
-            <span id="counter" class="">25:00</span>
+            @* <label id="counter">@Model.CurrentTime</label> *@
+            <label id="counter">25:00</label>
         </div>
 
-    </div>    
- 
+    </div>
+
     <div id="ActionsPomodoro" class=" row col-lg-5">
 
         <div id="buttonAction" class="col-md-4 ">
-            <button class="" style="background-color: #5ba422; border:1px solid #396516;">Start</button>
-        </div> 
 
-        <div id="buttonAction" class="col-md-4 "> 
-            <button style="background-color: #c61013; border:1px solid #7f0a0c;">Stop</button>
+            <button onclick="start()" style="background-color: #5ba422; border:1px solid #396516;">
+                Start
+                @* <a asp-page-handler="Start"> Start </a> *@
+            </button>
+
         </div>
 
         <div id="buttonAction" class="col-md-4 ">
-            <button style="background-color: #e9e9e9; border:1px solid #c3c3c3; color:black">Reset</button>
+            <button onclick="stop()" style="background-color: #c61013; border:1px solid #7f0a0c;">
+                Stop
+                @* <a asp-page-handler="Stop"> Stop </a> *@
+            </button>
+        </div>
+
+        <div id="buttonAction" class="col-md-4 ">
+            <button onclick="reset()" style="background-color: #e9e9e9; border:1px solid #c3c3c3; color:black">
+                Reset
+                @* <a asp-page-handler="Restart"> Reset </a> *@
+            </button>
         </div>
 
     </div>
 
 </div>
+
+<script type="text/javascript">
+
+    //Parametros 
+    var minutes  = 25;
+    var seconds  = 59;
+
+    //Valores 
+    var currentSeconds  = 0;
+    var currentMinutes  = minutes;
+    var TextTimer       = currentMinutes + ":" + currentSeconds;
+    var isEventValid    = (currentMinutes > 0 || currentSeconds > 0);
+
+
+    //Objetos
+    var timer;
+    var isEnable = false;
+
+    //Dom 
+    var x = document.getElementById("counter");
+
+    function setTime() {
+        timer = setInterval(OnEventTimer, 1000);
+    }
+
+    function start() {
+
+        if ( isEnable == false && isEventValid) 
+        {
+            setTime();
+            isEnable = true;
+        }
+
+    }
+
+    function stop() {
+
+        clearTimeout(timer);
+        clearInterval(timer);
+
+        isEnable = false;
+    }
+
+    function reset() {
+        stop();
+        currentSeconds = 0;
+        currentMinutes = minutes;
+        AsingTimeText();
+        document.title = "TimerWeb";
+
+    }
+
+    function OnEventTimer() {
+
+        var isEventValid = (currentMinutes > 0 || currentSeconds > 0);
+
+
+        if (isEventValid == false) {
+            stop();
+            return;
+        }
+
+        if( currentSeconds == 0)
+        {
+            currentMinutes--;
+            currentSeconds = seconds;
+        }
+        else 
+            currentSeconds--;
+
+        AsingTimeText();
+    }
+
+    function AsingTimeText() {
+
+        var textMinues = currentMinutes < 10 ? "0"+currentMinutes : currentMinutes;
+        var textCurrentSeconds = currentSeconds < 10 ? "0"+currentSeconds : currentSeconds;
+
+        TextTimer = textMinues + ":" + textCurrentSeconds;
+
+        document.title = "("+TextTimer+") TomatoWeb";
+
+        x.innerText = TextTimer;
+    }
+
+    function pomodoro(number) {
+
+        stop();
+        minutes = number;
+        currentSeconds = 0;
+        currentMinutes = minutes;
+
+        AsingTimeText();
+        start();
+    }
+
+</script>
