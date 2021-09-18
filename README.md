@@ -6,4 +6,4 @@
 
   B. Clonar website e implentar logica en ASP.NET CORE 
   
-  C. https://pedrormiguel.somee.com/
+  C. http://pedrormiguel.somee.com/
